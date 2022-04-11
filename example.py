@@ -18,6 +18,7 @@ class ExampleWindow(group_guess.AppWindow):
                                               example_question_answers)
     # Need to define self.questions
     self.questions = [example_question_1]
+    self.game_title = "Example Code"
   # You can define do_subclass_make_widgets() here, although it's optional.
 
 def main():
