@@ -88,7 +88,7 @@ class _AnswerWrapper(gtk.Stack):
     """Internally fetches the cover file and generates an Image."""
     # There doesn't appear to be a more native creation method.
     self.cover_file = gio.File.new_for_uri(FF_ASSET_PATH +
-                                           "cover-%s.svg" %(self.index))
+                                           "cover-%s.svg" %(self.index + 1))
     # rsvg.Handle.new_from_gfile_sync(file: gio.File, flags: rsvg.HandleFlags,
     #                                 cancellable: gio.Cancellable)
     self.cover_rsvg = rsvg.Handle.new_from_gfile_sync(self.cover_file,
@@ -189,6 +189,7 @@ class Question(object):
       # Will asking for parent window return the original object?
       tmp_window = self.get_toplevel()
     tmp_window.show_question(self.id) #Will this work?
+    tmp_window.set_back_button_visible(True)
 
 class AppWindow(gtk.Window):
   """The Window to select and interact with questions."""
@@ -238,6 +239,7 @@ class AppWindow(gtk.Window):
   def back_to_home(self, item=None):
     """Goes back to home page. Signal item for back_button."""
     self.stack.set_visible_child_named("homepage")
+    self.set_back_button_visible(False)
   def add_box_questions(self):
     """Adds Question Buttons, and adds them to the Stack."""
     for x in self.questions:
