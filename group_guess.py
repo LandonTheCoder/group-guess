@@ -9,6 +9,9 @@ from gi.repository import Rsvg as rsvg
 from gi.repository import Gio as gio
 import pathlib as paths
 
+# To set debugging.
+global group_guess_debug; group_guess_debug = True
+
 def find_asset_dir():
   """To locate icons for use."""
   from sys import path
@@ -193,9 +196,10 @@ class Question(object):
 
 class AppWindow(gtk.Window):
   """The Window to select and interact with questions."""
-  def __init__(self, debug=False):
+  def __init__(self, debug=None):
     """Something"""
-    self.debug = debug
+    if debug is not None:
+      group_guess_debug = debug #Globally configured
     self.game_title = None
     self.create_questions()
     super().__init__()
@@ -227,7 +231,7 @@ class AppWindow(gtk.Window):
     self.hbar.pack_start(self.back_button)
     self.add_box_questions()
     # For debugging: create second window with a StackSwitcher
-    if self.debug:
+    if group_guess_debug:
       self.stack_switcher = gtk.StackSwitcher(orientation=gtk.Orientation.VERTICAL)
       self.stack_switcher.set_stack(self.stack)
       self.stack_switch_win = gtk.Window(title="Group Guess Switcher")
