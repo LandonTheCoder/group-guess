@@ -182,6 +182,9 @@ class Question(gtk.Box):
       pass # Place an "Answer Wrong" dialog here.
     self.entry_field.set_editable(True)
   #
+  def if_answer_wrong(self, wrong_answer=None):
+    """Display a dialog for a wrong answer."""
+    wrong_answer_dialog = gtk.Dialog
   def _make_answers(self):
     self.switched_answers = []
     for x in range(len(self.answers)):
