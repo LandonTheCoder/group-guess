@@ -111,8 +111,8 @@ class _AnswerWrapper(gtk.Stack):
 
 class Question(object):
   """This represents a question of the game."""
-  def __init__(self, question, id, answers):
-    self.id = id
+  def __init__(self, question, the_id, answers):
+    self.the_id = the_id
     self.question = question
     self.answers = answers # A list-like iterable of Answers
     # An id is necessary to allow selecting the question from the main menu.
@@ -151,7 +151,7 @@ class Question(object):
     the_wrapper = None
     has_answer = False
     print("Question \"%s\" (id %s) checking answers..." %(self.question,
-                                                          self.id))
+                                                          self.the_id))
     for ans in self.answers:
       print("Checking answer \"%s\"" %(ans.displayname))
       for x in ans.answers:
@@ -191,7 +191,7 @@ class Question(object):
     else:
       # Will asking for parent window return the original object?
       tmp_window = self.get_toplevel()
-    tmp_window.show_question(self.id) #Will this work?
+    tmp_window.show_question(self.the_id) #Will this work?
     tmp_window.set_back_button_visible(True)
 
 class AppWindow(gtk.Window):
@@ -247,13 +247,13 @@ class AppWindow(gtk.Window):
   def add_box_questions(self):
     """Adds Question Buttons, and adds them to the Stack."""
     for x in self.questions:
-      self.stack.add_named(x, x.id)
+      self.stack.add_named(x, x.the_id)
       tmp_button = gtk.Button.new_with_label(x.question)
       tmp_button.connect("clicked", x.when_button_clicked, self)
       self.box_buttons.append(tmp_button)
       self.box.pack_start(tmp_button, True, True, 0)
-  def show_question(self, id):
-    self.stack.set_visible_child_named(id)
+  def show_question(self, the_id):
+    self.stack.set_visible_child_named(the_id)
   def set_back_button_visible(self, is_visible):
     """Wrapper function to show/hide back button"""
     self.back_button.set_visible(is_visible)
