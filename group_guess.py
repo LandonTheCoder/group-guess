@@ -4,6 +4,9 @@
 
 Just know, this is very much a work in progress."""
 
+import gi
+gi.require_version("Gtk", "3.0")
+gi.require_version("Rsvg", "2.0")
 from gi.repository import Gtk as gtk
 from gi.repository import Rsvg as rsvg
 from gi.repository import Gio as gio
@@ -11,6 +14,9 @@ import pathlib as paths
 
 # To set debugging.
 global group_guess_debug; group_guess_debug = True
+def debug(*zargs, **kwargs):
+  if group_guess_debug:
+    print(*zargs, **kwargs)
 
 def find_asset_dir():
   """To locate icons for use."""
@@ -18,7 +24,7 @@ def find_asset_dir():
   # sys.path[0] is script directory
   script_dir_path = paths.Path(path[0]).resolve()
   if (script_dir_path.joinpath("assets").exists() and
-      script_dir_path.joinpath("assets").is_directory()):
+      script_dir_path.joinpath("assets").is_dir()):
     return script_dir_path.joinpath("assets")
 FF_ASSET_PATH_FANCY = find_asset_dir()
 # File:/// URIs must be absolute
@@ -40,9 +46,9 @@ def _generate_img_asset_item(item_name, scale_factor):
                                                None)
   # I need the DPI! Calculate from scale factor.
   dpi = scale_factor * 96 # Scale factor of 1 is typically 96DPI
-  cover_pixbuf.set_dpi(dpi)
-  cover_pixbuf = self.cover_rsvg.get_pixbuf()
-  cover_img = gtk.Image.new_from_pixbuf(self.cover_pixbuf)
+  cover_rsvg.set_dpi(dpi)
+  cover_pixbuf = cover_rsvg.get_pixbuf()
+  cover_img = gtk.Image.new_from_pixbuf(cover_pixbuf)
   cover_img.show()
   return (cover_file, cover_rsvg, cover_pixbuf, cover_img)
 
@@ -64,7 +70,7 @@ ppl (optional) denotes how many of the Family Feud votes went to this answer. If
     self.displayname_lbl.set_line_wrap(True)
     self.sep = gtk.Separator(orientation=gtk.Orientation.VERTICAL)
     super().__init__(orientation=gtk.Orientation.HORIZONTAL)
-    self.set_homogenous(False)
+    self.set_homogeneous(False)
     # gtk.Box.pack_end(widget, expand, fill, padding)
     self.pack_end(self.ppl_lbl, False, False, 0)
     self.pack_end(self.sep, False, False, 3)
@@ -78,13 +84,13 @@ class _AnswerWrapper(gtk.Stack):
     # self.index Should be between 0 and 7, and is displayed in image as index+1
     self.answer = answer
     super().__init__()
-    self.set_homogenous(True)
+    self.set_homogeneous(True)
     # This creates a gtk.Stack-based wrapper which switches between the answer
     # and its cover item.
     self._generate_cover_item()
     self.add_named(self.cover_img, "cover")
     self.add_named(self.answer, "ans")
-    self.set_visible_child_named("cover")
+    self.set_visible_child_name("cover")
     self.show_all()
     self.set_transition_type(gtk.StackTransitionType.UNDER_UP)
   def _generate_cover_item(self):
@@ -100,29 +106,33 @@ class _AnswerWrapper(gtk.Stack):
     # I need the DPI! Calculate from scale factor.
     scale_factor = self.get_scale_factor()
     dpi = scale_factor * 96 # Scale factor of 1 is typically 96DPI
-    self.cover_pixbuf.set_dpi(dpi)
+    self.cover_rsvg.set_dpi(dpi)
     self.cover_pixbuf = self.cover_rsvg.get_pixbuf()
     self.cover_img = gtk.Image.new_from_pixbuf(self.cover_pixbuf)
     self.cover_img.show()
   def show_answer(self):
     """Makes answer visible."""
-    self.set_visible_child_named("ans")
+    self.set_visible_child_name("ans")
     pass # self.stack_switch_something("answer")
 
-class Question(object):
+class Question(gtk.Box):
   """This represents a question of the game."""
   def __init__(self, question, the_id, answers):
     self.the_id = the_id
     self.question = question
     self.answers = answers # A list-like iterable of Answers
     # An id is necessary to allow selecting the question from the main menu.
+    debug("Creating question %s, \"%s\", answers=%s" %(the_id, question, answers))
+    super().__init__(orientation=gtk.Orientation.VERTICAL)
     self._make_answers()
     self._make_flow_box()
+    self._create_widgets()
+    self.show_all()
   def _make_flow_box(self):
-    self.flowbox = gtk.FlowBox()
+    self.flowbox = gtk.FlowBox(orientation=gtk.Orientation.VERTICAL)
     # Flows from top to bottom and wraps to the column to the right, when
     # widgets are added.
-    self.flowbox.set_orientation(gtk.Orientation.VERTICAL)
+    self.flowbox.set_min_children_per_line(4)
     self.flowbox.set_max_children_per_line(4)
     for x in self.switched_answers:
       self.flowbox.add(x)
@@ -130,7 +140,6 @@ class Question(object):
       for x in self.spacers:
         self.flowbox.add(x)
   def _create_widgets(self):
-    self.box = gtk.Box(orientation=gtk.Orientation.VERTICAL)
     self.entry_field = gtk.Entry(tooltip_text="Type Guess Here...")
     #gtk.Entry.set_icon_from_icon_name(pos: gtk.EntryIconPosition, name: str)
     self.entry_field.set_icon_from_icon_name(gtk.EntryIconPosition.SECONDARY,
@@ -141,6 +150,8 @@ class Question(object):
     self.entry_field.connect("activate", self.check_answer)
     # When icon clicked
     self.entry_field.connect("icon-press", self.check_answer)
+    self.pack_start(self.flowbox, False, False, 0)
+    self.pack_start(self.entry_field, False, False, 5)
   def check_answer(self, guess):
     """This checks if the guess matches any of the answers.
 
@@ -181,8 +192,9 @@ class Question(object):
         self.spacers.append(_generate_img_asset_item("cover-answerless.svg",
                                                      self.get_scale_factor())[3]
                            )
-    print("question \"%s\": len(switched_answers) is %s, len(spacers) is %s" %(len(self.switched_answers),
-                                                                               len(self.spacers)))
+    print("question \"%s\": len(switched_answers) is %s," %(self.question,
+                                                            len(self.switched_answers)),
+          "len(spacers) is %s" %(len(self.spacers)))
   def when_button_clicked(self, button, data=None):
     """Need to show myself on the parent window's stack."""
     pass
@@ -205,16 +217,17 @@ class AppWindow(gtk.Window):
     super().__init__()
     self.connect("destroy", gtk.main_quit)
     self._mkwidgets()
+    self.add(self.stack)
     pass
     self.hbar.show_all()
     self.set_back_button_visible(False)
-    self.stack.show_all()
     self.show()
   def _mkwidgets(self):
     """Internal widget creator."""
     self.box = gtk.Box(orientation=gtk.Orientation.VERTICAL, spacing=5)
     self.stack = gtk.Stack()
     self.hbar = gtk.HeaderBar()
+    debug("AppWindow.box:", self.box, "\nAppWindow.stack:", self.stack)
     self.hbar.set_show_close_button(True)
     if self.game_title != None:
       self.hbar.set_has_subtitle(True)
@@ -230,6 +243,11 @@ class AppWindow(gtk.Window):
     self.back_button.connect("clicked", self.back_to_home)
     self.hbar.pack_start(self.back_button)
     self.add_box_questions()
+    self.box.show_all()
+    self.stack.add_titled(self.box, "homepage", "homepage")
+    self.add(self.stack)
+    self.stack.show_all()
+    self.stack.set_visible_child_name("homepage")
     # For debugging: create second window with a StackSwitcher
     if group_guess_debug:
       self.stack_switcher = gtk.StackSwitcher(orientation=gtk.Orientation.VERTICAL)
@@ -242,18 +260,20 @@ class AppWindow(gtk.Window):
     self.set_titlebar(self.hbar)
   def back_to_home(self, item=None):
     """Goes back to home page. Signal item for back_button."""
-    self.stack.set_visible_child_named("homepage")
+    self.stack.set_visible_child_name("homepage")
     self.set_back_button_visible(False)
   def add_box_questions(self):
     """Adds Question Buttons, and adds them to the Stack."""
+    self.box_buttons = []
     for x in self.questions:
-      self.stack.add_named(x, x.the_id)
+      self.stack.add_titled(x, x.the_id, x.the_id)
       tmp_button = gtk.Button.new_with_label(x.question)
       tmp_button.connect("clicked", x.when_button_clicked, self)
+      debug("AppWindow: question %s, id %s, button %s" %(x, x.the_id, tmp_button))
       self.box_buttons.append(tmp_button)
-      self.box.pack_start(tmp_button, True, True, 0)
+      self.box.pack_start(tmp_button, False, False, 0)
   def show_question(self, the_id):
-    self.stack.set_visible_child_named(the_id)
+    self.stack.set_visible_child_name(the_id)
   def set_back_button_visible(self, is_visible):
     """Wrapper function to show/hide back button"""
     self.back_button.set_visible(is_visible)

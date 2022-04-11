@@ -4,6 +4,8 @@
 Meant to be used as a guide for new games, until a savefile is implemented."""
 
 import group_guess
+import gi; gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk as gtk
 
 class ExampleWindow(group_guess.AppWindow):
   def create_questions(self):
@@ -24,3 +26,4 @@ class ExampleWindow(group_guess.AppWindow):
 def main():
   test_window = ExampleWindow(debug=True)
   gtk.main()
+main()
