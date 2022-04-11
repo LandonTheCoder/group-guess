@@ -140,6 +140,7 @@ class Question(gtk.Box):
       for x in self.spacers:
         self.flowbox.add(x)
   def _create_widgets(self):
+    self.question_lbl = gtk.Label(label=self.question, wrap=True)
     self.entry_field = gtk.Entry(tooltip_text="Type Guess Here...")
     #gtk.Entry.set_icon_from_icon_name(pos: gtk.EntryIconPosition, name: str)
     self.entry_field.set_icon_from_icon_name(gtk.EntryIconPosition.SECONDARY,
@@ -179,12 +180,23 @@ class Question(gtk.Box):
       if the_wrapper != None:
         the_wrapper.show_answer()
     else:
-      pass # Place an "Answer Wrong" dialog here.
+      self.if_answer_wrong(text) # Place an "Answer Wrong" dialog here.
     self.entry_field.set_editable(True)
   #
   def if_answer_wrong(self, wrong_answer=None):
     """Display a dialog for a wrong answer."""
-    wrong_answer_dialog = gtk.Dialog
+    debug("Answer wrong.")
+    wrong_answer_dialog = gtk.MessageDialog(transient_for=self.get_toplevel(),
+                                            flags=0,
+                                            message_type=gtk.MessageType.INFO,
+                                            buttons=gtk.ButtonsType.OK,
+                                            text="Answer Wrong")
+    #wrong_answer_dialog.set_transient_for(self.get_toplevel())
+    wrong_answer_dialog.format_secondary_text("The answer you picked was incorrect.")
+    wrong_answer_dialog.run(); wrong_answer_dialog.destroy()
+    debug("Wrong answer dialog done.")
+    #wrong_answer_dialog = gtk.Dialog(modal=True)
+    #icon "action-unavailable-symbolic" in gtk.Box
   def _make_answers(self):
     self.switched_answers = []
     for x in range(len(self.answers)):
