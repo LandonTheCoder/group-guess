@@ -9,7 +9,7 @@ This is an attempt to build a game like Family Feud, playable digitally in a man
    - This is partially done. It works, and a single question is answerable. I haven't done more comprehensive testing, though.
  - [ ] Write code to support saved games, so that making a new Group Guess game doesn't require making a subclass, but just importing a save file into data structures. I'm thinking that the save format would use JSON, because that maps quite well to the internal structure of everything, it would just need code to import from JSON.
  - [ ] Making the rest of the icons, including the blank-answer (spacer) icon, most cover icons, and the app icon.
- - [ ] Adding an "Answer wrong" dialog
+ - [x] Adding an "Answer wrong" dialog
  - [ ] Adding more debugging hooks
  - [ ] Use gtk.Application API to support app grouping
  - [ ] Optional: Fancy sound effects.
