@@ -150,9 +150,11 @@ class Question(gtk.Box):
     # When Enter key pressed
     self.entry_field.connect("activate", self.check_answer)
     # When icon clicked
-    self.entry_field.connect("icon-press", self.check_answer)
+    self.entry_field.connect("icon-press", self.check_answer_icon)
     self.pack_start(self.flowbox, False, False, 0)
     self.pack_start(self.entry_field, False, False, 5)
+  def check_answer_icon(self, guess, *args):
+    return self.check_answer(guess)
   def check_answer(self, guess):
     """This checks if the guess matches any of the answers.
 
