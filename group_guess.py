@@ -151,6 +151,7 @@ class Question(gtk.Box):
     self.entry_field.connect("activate", self.check_answer)
     # When icon clicked
     self.entry_field.connect("icon-press", self.check_answer_icon)
+    self.pack_start(self.question_lbl, False, False, 0)
     self.pack_start(self.flowbox, False, False, 0)
     self.pack_start(self.entry_field, False, False, 5)
   def check_answer_icon(self, guess, *args):
@@ -164,12 +165,12 @@ class Question(gtk.Box):
     the_answer = None
     the_wrapper = None
     has_answer = False
-    print("Question \"%s\" (id %s) checking answers..." %(self.question,
+    debug("Question \"%s\" (id %s) checking answers..." %(self.question,
                                                           self.the_id))
     for ans in self.answers:
-      print("Checking answer \"%s\"" %(ans.displayname))
+      debug("Checking answer \"%s\"" %(ans.displayname))
       for x in ans.answers:
-        print("Checking to see if \"%s\" is in \"%s\"" %(text.lower().strip(),
+        debug("Checking to see if \"%s\" is in \"%s\"" %(text.lower().strip(),
                                                          x.lower().strip())
              )
         if text.lower().strip() in x.lower().strip():
@@ -209,7 +210,7 @@ class Question(gtk.Box):
         self.spacers.append(_generate_img_asset_item("cover-answerless.svg",
                                                      self.get_scale_factor())[3]
                            )
-    print("question \"%s\": len(switched_answers) is %s," %(self.question,
+    debug("question \"%s\": len(switched_answers) is %s," %(self.question,
                                                             len(self.switched_answers)),
           "len(spacers) is %s" %(len(self.spacers)))
   def when_button_clicked(self, button, data=None):
