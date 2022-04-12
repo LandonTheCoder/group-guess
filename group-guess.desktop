@@ -1,0 +1,21 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Group Guess
+Comment=A Digital Family Feud clone
+# The input file is a hard requirement, so don't show in the menus
+NoDisplay=true;
+MimeType=text/x-group-guess+json;
+#TryExec=gg-gamesave
+Exec=$HOME/.local/bin/gg-gamesave %f
+#Icon=fooview
+#Actions=Gallery;Create;
+
+#[Desktop Action Gallery]
+#Exec=fooview --gallery
+#Name=Browse Gallery
+
+#[Desktop Action Create]
+#Exec=fooview --create-new
+#Name=Create a new Foo!
+#Icon=fooview-new

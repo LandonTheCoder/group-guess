@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="text/x-group-guess+json">
+    <comment>Group Guess Savefile</comment>
+    <!--
+      Be extremely compliant with XML standard! It will otherwise fail! 
+      Also, the slashes at the ends indicate the end of an element
+      ('<bob Joe="Jeff" />' is equivalent to '<bob Joe="Jeff"></bob>'.)
+    -->
+    <alias type="application/x-group-guess+json"></alias>
+    <icon name="application-json" />
+    <!-- Foo Bar here. -->
+    <magic priority="60">
+      <!-- Magic string testing, since there aren't any binary numbers, and I wouldn't put in actual binary. -->
+
+      <!-- "&lt;"="<" "&gt;"=">" "&quot;"="\"" -->
+
+      <match type="string" offset="0:1000" value="&quot;filetype&quot;: &quot;text/x-group-guess+json&quot;" />
+      <!-- Search for "filetype": "text/x-group-guess+json" -->
+
+      <match type="string" offset="0:1000" value="&quot;filetype&quot;:&quot;text/x-group-guess+json&quot;" />
+      <!-- Search for "filetype":"text/x-group-guess+json" -->
+    </magic>
+
+    <sub-class-of type="application/json" />
+    <!-- This first glob is needed to make the type-checker use magic-sniffing
+         (therefore to find it to be a savefile). -->
+    <glob pattern="*.json" />
+    <glob pattern="*.gg*json" weight="51" />
+    <!-- Filename extension is same as JSON, so not included. Characterized by content. -->
+  </mime-type>
+</mime-info>
