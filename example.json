@@ -1,6 +1,7 @@
 {
   "game_title": "Example Save",
   "debug": false,
+  "filetype": "text/x-group-guess+json",
   "questions": [
     {
       "question": "What is your favorite color?",
