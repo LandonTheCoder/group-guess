@@ -1,0 +1,15 @@
+{
+  "game_title": "Example Save",
+  "debug": false,
+  "questions": [
+    {
+      "question": "What is your favorite color?",
+      "the_id": "favorite-color",
+      "answers": [
+        {"answer": "red", "alts": [], "ppl": 30},
+        {"answer": "blue", "ppl": 25},
+        {"answer": "yellow", "ppl": 20}
+      ]
+    }
+  ]
+}
