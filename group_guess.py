@@ -165,6 +165,7 @@ class Question(gtk.Box):
     the_answer = None
     the_wrapper = None
     has_answer = False
+    has_invalid_answer = False
     debug("Question \"%s\" (id %s) checking answers..." %(self.question,
                                                           self.the_id))
     for ans in self.answers:
@@ -173,19 +174,39 @@ class Question(gtk.Box):
         debug("Checking to see if \"%s\" is in \"%s\"" %(text.lower().strip(),
                                                          x.lower().strip())
              )
-        if text.lower().strip() in x.lower().strip():
+        # Check for cheats by inputting a tiny string to make more matches
+        if len(text.strip()) < 2:
+          tiny_answer_dialog = self.make_new_dialog(gtk.MessageType.WARNING,
+                                                    "Answer too short")
+          tmp_text = "Your answer (\"%s\") was too short." %(text)
+          tiny_answer_dialog.format_secondary_text(tmp_text)
+          tiny_answer_dialog.run(); tiny_answer_dialog.destroy()
+          del tmp_text
+          has_invalid_answer = True
+          break
+        elif text.lower().strip() in x.lower().strip():
           the_answer = ans
           has_answer = True
+      if has_invalid_answer: break #break can only escape one loop.
     if has_answer:
       for x in self.switched_answers:
         if x.answer is the_answer:
           the_wrapper = x
       if the_wrapper != None:
         the_wrapper.show_answer()
+    elif has_invalid_answer:
+      debug("Answer invalid. Answer-check loop ended.")
     else:
       self.if_answer_wrong(text) # Place an "Answer Wrong" dialog here.
+    self.entry_field.set_text("")
     self.entry_field.set_editable(True)
   #
+  def make_new_dialog(self, msgtype, errortext):
+    return gtk.MessageDialog(transient_for=self.get_toplevel(),
+                             flags=0,
+                             message_type=msgtype,
+                             buttons=gtk.ButtonsType.OK,
+                             text=errortext)
   def if_answer_wrong(self, wrong_answer=None):
     """Display a dialog for a wrong answer."""
     debug("Answer wrong.")
@@ -195,7 +216,8 @@ class Question(gtk.Box):
                                             buttons=gtk.ButtonsType.OK,
                                             text="Answer Wrong")
     #wrong_answer_dialog.set_transient_for(self.get_toplevel())
-    wrong_answer_dialog.format_secondary_text("The answer you picked was incorrect.")
+    wrong_answer_dialog.format_secondary_text("The answer you picked "
+                                              "(\"%s\") was incorrect." %(wrong_answer))
     wrong_answer_dialog.run(); wrong_answer_dialog.destroy()
     debug("Wrong answer dialog done.")
     #wrong_answer_dialog = gtk.Dialog(modal=True)
