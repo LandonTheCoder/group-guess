@@ -1,5 +1,5 @@
 [Desktop Entry]
-Version=1.0
+Version=1.4
 Type=Application
 Name=Group Guess
 Comment=A Digital Family Feud clone
@@ -7,7 +7,7 @@ Comment=A Digital Family Feud clone
 NoDisplay=true;
 MimeType=text/x-group-guess+json;
 #TryExec=gg-gamesave
-Exec=$HOME/.local/bin/gg-gamesave %f
+Exec=gg-gamesave %f
 #Icon=fooview
 #Actions=Gallery;Create;
 
