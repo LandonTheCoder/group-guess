@@ -1,3 +1,11 @@
 __pycache__
 group_guess/__pycache__
 build
+.pybuild/
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/group-guess.postinst.debhelper
+debian/group-guess.prerm.debhelper
+debian/group-guess.substvars
+debian/group-guess/

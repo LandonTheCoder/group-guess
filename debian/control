@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Landon H. <100165458+LandonTheCoder@users.noreply.github.com>
 Build-Depends: debhelper-compat (= 12), dh-python, python3-setuptools, python3-all
 Standards-Version: 4.4.1
-Homepage: <insert the upstream URL, if relevant>
+Homepage: https://github.com/LandonTheCoder/group-guess
 #Vcs-Browser: https://salsa.debian.org/debian/group-guess
 #Vcs-Git: https://salsa.debian.org/debian/group-guess.git
 #Testsuite: autopkgtest-pkg-python
@@ -20,12 +20,12 @@ Description: <insert up to 60 chars description> (Python 3)
  This package installs the library for Python 3.
  .
  It also installs gg-gamesave, used to open JSON-format gamesaves.
-
-Package: python-group-guess-doc
-Architecture: all
-Section: doc
-Depends: ${sphinxdoc:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description> (common documentation)
- <insert long description, indented with spaces>
- .
- This is the common documentation package.
+#
+#Package: python-group-guess-doc
+#Architecture: all
+#Section: doc
+#Depends: ${sphinxdoc:Depends}, ${misc:Depends}
+#Description: <insert up to 60 chars description> (common documentation)
+# <insert long description, indented with spaces>
+# .
+# This is the common documentation package.
