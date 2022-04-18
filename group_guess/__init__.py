@@ -28,11 +28,13 @@ def find_asset_dir():
     return script_dir_path.joinpath("assets")
   else:
     # If the importer is separate from the module/library...
-    for x in path[1:]: 
+    # This also checks for scripts using it as a submodule.
+    for x in path[0:]: 
       # x will contain module directories.
       item = paths.Path(x)
       if item.exists():
         # Work around a Python bug that adds invalid paths to sys.path
+        print(item, "exists!")
         for y in item.iterdir():
           # y is the actual set of module directories.
           if (y.joinpath("assets").exists() and y.joinpath("assets").is_dir()):
