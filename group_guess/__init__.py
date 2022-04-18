@@ -26,6 +26,23 @@ def find_asset_dir():
   if (script_dir_path.joinpath("assets").exists() and
       script_dir_path.joinpath("assets").is_dir()):
     return script_dir_path.joinpath("assets")
+  else:
+    # If the importer is separate from the module/library...
+    # This also checks for scripts using it as a submodule.
+    for x in path[0:]: 
+      # x will contain module directories.
+      item = paths.Path(x)
+      if item.exists():
+        # Work around a Python bug that adds invalid paths to sys.path
+        print(item, "exists!")
+        for y in item.iterdir():
+          # y is the actual set of module directories.
+          if (y.joinpath("assets").exists() and y.joinpath("assets").is_dir()):
+            print("trying %s" %(y.joinpath("assets")))
+            return y.joinpath("assets")
+      else:
+        print("%s is invalid/nonexistent!" %(item))
+    # Let's hope this works.
 FF_ASSET_PATH_FANCY = find_asset_dir()
 # File:/// URIs must be absolute
 tmp_asset_uri = FF_ASSET_PATH_FANCY.resolve().as_uri()
