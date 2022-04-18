@@ -9,7 +9,7 @@ setup(name="Group Guess",
       author_email="100165458+LandonTheCoder@users.noreply.github.com",
       url="https://github.com/LandonTheCoder/group-guess/",
       packages=["group_guess"],
-      scripts=["gg-gamesave.py"],
+      scripts=["gg-gamesave"],
       package_data={"group_guess": ["assets/*.svg",
                                     "example.json"]
                    }
