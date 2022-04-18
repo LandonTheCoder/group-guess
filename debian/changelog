@@ -1,5 +1,12 @@
+group-guess (1.2.0-1) unstable; urgency=medium
+
+  * Corrects debian/ references, and makes portable instances work correctly.
+  
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 18 Apr 2022 17:00:0 -0400
+# Fix this with the result of `date -R` later.
+
 group-guess (1.1.2-1) unstable; urgency=medium
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release
 
- -- Landon H. <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 17 Apr 2022 12:27:48 -0400
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 17 Apr 2022 12:27:48 -0400

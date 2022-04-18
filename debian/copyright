@@ -1,15 +1,15 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: group-guess
-Upstream-Contact: <preferred name and address to reach the upstream project>
-Source: <url://example.com>
+Upstream-Contact: LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>
+# I don't give out a public email. To contact, use GitHub tools.
+Source: https://github.com/LandonTheCoder/group-guess
 
 Files: *
-Copyright: <years> <put author's name and email here>
-           <years> <likewise for another author>
+Copyright: 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>
 License: MIT
 
 Files: debian/*
-Copyright: 2022 Landon H. <100165458+LandonTheCoder@users.noreply.github.com>
+Copyright: 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>
 License: MIT
 
 License: MIT
