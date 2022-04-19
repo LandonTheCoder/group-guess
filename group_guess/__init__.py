@@ -190,7 +190,7 @@ class Question(gtk.Box):
     debug("Question \"%s\" (id %s) checking answers..." %(self.question,
                                                           self.the_id))
     for ans in self.answers:
-      debug("Checking answer \"%s\"" %(ans.displayname))
+      debug("Checking answer \"%s\"" %(ans.displayname), verbosity=3)
       for x in ans.answers:
         debug("Checking to see if \"%s\" is in \"%s\"" %(text.lower().strip(),
                                                          x.lower().strip())
@@ -255,7 +255,7 @@ class Question(gtk.Box):
                            )
     debug("question \"%s\": len(switched_answers) is %s," %(self.question,
                                                             len(self.switched_answers)),
-          "len(spacers) is %s" %(len(self.spacers)))
+          "len(spacers) is %s" %(len(self.spacers)), verbosity=3)
   def when_button_clicked(self, button, data=None):
     """Need to show myself on the parent window's stack."""
     pass
@@ -288,7 +288,8 @@ class AppWindow(gtk.Window):
     self.box = gtk.Box(orientation=gtk.Orientation.VERTICAL, spacing=5)
     self.stack = gtk.Stack()
     self.hbar = gtk.HeaderBar()
-    debug("AppWindow.box:", self.box, "\nAppWindow.stack:", self.stack)
+    debug("AppWindow.box:", self.box, "\nAppWindow.stack:", self.stack,
+         verbosity=3)
     self.hbar.set_show_close_button(True)
     if self.game_title != None:
       self.hbar.set_has_subtitle(True)
@@ -330,7 +331,9 @@ class AppWindow(gtk.Window):
       self.stack.add_titled(x, x.the_id, x.the_id)
       tmp_button = gtk.Button.new_with_label(x.question)
       tmp_button.connect("clicked", x.when_button_clicked, self)
-      debug("AppWindow: question %s, id %s, button %s" %(x, x.the_id, tmp_button))
+      debug("AppWindow: question %s, id %s, button %s" %(x, x.the_id,
+                                                         tmp_button),
+            verbosity=3)
       self.box_buttons.append(tmp_button)
       self.box.pack_start(tmp_button, False, False, 0)
   def show_question(self, the_id):

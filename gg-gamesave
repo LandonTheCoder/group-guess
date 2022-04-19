@@ -44,15 +44,15 @@ class SavedWindow(group_guess.AppWindow):
     for x in tmp_questions:
       tmp_answers = []
       for y in x["answers"]:
-        debug("answer_create: y = %s" %(y))
+        debug("answer_create: y = %s" %(y), verbosity=2)
         tmp_answers.append(group_guess.Answer(**y))
       debug("question_create: question=%s," %(x["question"]),
             "the_id = %s" %(x["the_id"]),
-            "answers = %s" %(tmp_answers))
+            "answers = %s" %(tmp_answers), verbosity=2)
       tmp_questions_obj.append(group_guess.Question(x["question"],
                                                     x["the_id"],
                                                     tmp_answers))
-    debug("tmp_questions_obj = %s" %(tmp_questions_obj))
+    debug("tmp_questions_obj = %s" %(tmp_questions_obj), verbosity=3)
     # Need to define self.questions
     self.questions = tmp_questions_obj
   # You can define do_subclass_make_widgets() here, although it's optional.

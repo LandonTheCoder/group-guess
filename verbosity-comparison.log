@@ -1,0 +1,97 @@
+$ echo "-----Single Verbosity-----" && ./gg-gamesave group_guess/example.json -v && echo -e "\\n-----Double Verbosity-----" && ./gg-gamesave group_guess/example.json -vv && echo -e "\\n-----Triple Verbosity-----" && ./gg-gamesave group_guess/example.json -vvv
+-----Single Verbosity-----
+/home/landon/Code/git/group-guess exists!
+trying /home/landon/Code/git/group-guess/group_guess/assets
+Something: 1
+<_io.TextIOWrapper name='group_guess/example.json' mode='r' encoding='UTF-8'>
+json_file = {'game_title': 'Example Save', 'debug': False, 'filetype': 'text/x-group-guess+json', 'questions': [{'question': 'What is your favorite color?', 'the_id': 'favorite-color', 'answers': [{'displayname': 'red', 'alts': [], 'ppl': 30}, {'displayname': 'blue', 'ppl': 25}, {'displayname': 'yellow', 'ppl': 20}]}]}
+Creating question favorite-color, "What is your favorite color?", answers=[<group_guess.Answer object at 0x7f1851fc7040 (group_guess+Answer at 0x1e4d1d0)>, <group_guess.Answer object at 0x7f1842d73540 (group_guess+Answer at 0x1e4d330)>, <group_guess.Answer object at 0x7f1852247b40 (group_guess+Answer at 0x1e4d490)>]
+
+(gg-gamesave:23535): Gtk-WARNING **: 18:26:42.981: Attempting to add a widget with type GtkStack to a container of type __main__+SavedWindow, but the widget is already inside a container of type __main__+SavedWindow, please remove the widget from its existing container first.
+setting verbosity... (verbose=1)
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking to see if "red" is in "red"
+Checking to see if "red" is in "blue"
+Checking to see if "red" is in "yellow"
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking to see if "orange" is in "red"
+Checking to see if "orange" is in "blue"
+Checking to see if "orange" is in "yellow"
+Answer wrong.
+Wrong answer dialog done.
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking to see if "yellow" is in "red"
+Checking to see if "yellow" is in "blue"
+Checking to see if "yellow" is in "yellow"
+
+-----Double Verbosity-----
+/home/landon/Code/git/group-guess exists!
+trying /home/landon/Code/git/group-guess/group_guess/assets
+Something: 2
+<_io.TextIOWrapper name='group_guess/example.json' mode='r' encoding='UTF-8'>
+json_file = {'game_title': 'Example Save', 'debug': False, 'filetype': 'text/x-group-guess+json', 'questions': [{'question': 'What is your favorite color?', 'the_id': 'favorite-color', 'answers': [{'displayname': 'red', 'alts': [], 'ppl': 30}, {'displayname': 'blue', 'ppl': 25}, {'displayname': 'yellow', 'ppl': 20}]}]}
+answer_create: y = {'displayname': 'red', 'alts': [], 'ppl': 30}
+answer_create: y = {'displayname': 'blue', 'ppl': 25}
+answer_create: y = {'displayname': 'yellow', 'ppl': 20}
+question_create: question=What is your favorite color?, the_id = favorite-color answers = [<group_guess.Answer object at 0x7fa1ee01ee40 (group_guess+Answer at 0x28961d0)>, <group_guess.Answer object at 0x7fa1ec1c39c0 (group_guess+Answer at 0x2896330)>, <group_guess.Answer object at 0x7fa1ec1c3ec0 (group_guess+Answer at 0x2896490)>]
+Creating question favorite-color, "What is your favorite color?", answers=[<group_guess.Answer object at 0x7fa1ee01ee40 (group_guess+Answer at 0x28961d0)>, <group_guess.Answer object at 0x7fa1ec1c39c0 (group_guess+Answer at 0x2896330)>, <group_guess.Answer object at 0x7fa1ec1c3ec0 (group_guess+Answer at 0x2896490)>]
+
+(gg-gamesave:23543): Gtk-WARNING **: 18:26:56.201: Attempting to add a widget with type GtkStack to a container of type __main__+SavedWindow, but the widget is already inside a container of type __main__+SavedWindow, please remove the widget from its existing container first.
+setting verbosity... (verbose=2)
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking to see if "red" is in "red"
+Checking to see if "red" is in "blue"
+Checking to see if "red" is in "yellow"
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking to see if "orange" is in "red"
+Checking to see if "orange" is in "blue"
+Checking to see if "orange" is in "yellow"
+Answer wrong.
+Wrong answer dialog done.
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking to see if "yellow" is in "red"
+Checking to see if "yellow" is in "blue"
+Checking to see if "yellow" is in "yellow"
+
+-----Triple Verbosity-----
+/home/landon/Code/git/group-guess exists!
+trying /home/landon/Code/git/group-guess/group_guess/assets
+Something: 3
+<_io.TextIOWrapper name='group_guess/example.json' mode='r' encoding='UTF-8'>
+json_file = {'game_title': 'Example Save', 'debug': False, 'filetype': 'text/x-group-guess+json', 'questions': [{'question': 'What is your favorite color?', 'the_id': 'favorite-color', 'answers': [{'displayname': 'red', 'alts': [], 'ppl': 30}, {'displayname': 'blue', 'ppl': 25}, {'displayname': 'yellow', 'ppl': 20}]}]}
+answer_create: y = {'displayname': 'red', 'alts': [], 'ppl': 30}
+answer_create: y = {'displayname': 'blue', 'ppl': 25}
+answer_create: y = {'displayname': 'yellow', 'ppl': 20}
+question_create: question=What is your favorite color?, the_id = favorite-color answers = [<group_guess.Answer object at 0x7fa00f519f00 (group_guess+Answer at 0x1b74190)>, <group_guess.Answer object at 0x7fa00c121700 (group_guess+Answer at 0x1b742f0)>, <group_guess.Answer object at 0x7fa00c121c40 (group_guess+Answer at 0x1b74450)>]
+Creating question favorite-color, "What is your favorite color?", answers=[<group_guess.Answer object at 0x7fa00f519f00 (group_guess+Answer at 0x1b74190)>, <group_guess.Answer object at 0x7fa00c121700 (group_guess+Answer at 0x1b742f0)>, <group_guess.Answer object at 0x7fa00c121c40 (group_guess+Answer at 0x1b74450)>]
+question "What is your favorite color?": len(switched_answers) is 3, len(spacers) is 5
+tmp_questions_obj = [<group_guess.Question object at 0x7fa00c121d40 (group_guess+Question at 0x1b745b0)>]
+AppWindow.box: <Gtk.Box object at 0x7fa00c121480 (GtkBox at 0x1b74710)> 
+AppWindow.stack: <Gtk.Stack object at 0x7fa00c130cc0 (GtkStack at 0x1a88750)>
+AppWindow: question <group_guess.Question object at 0x7fa00c121d40 (group_guess+Question at 0x1b745b0)>, id favorite-color, button <Gtk.Button object at 0x7fa00c136640 (GtkButton at 0x195d340)>
+
+(gg-gamesave:23570): Gtk-WARNING **: 18:27:23.889: Attempting to add a widget with type GtkStack to a container of type __main__+SavedWindow, but the widget is already inside a container of type __main__+SavedWindow, please remove the widget from its existing container first.
+setting verbosity... (verbose=3)
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking answer "red"
+Checking to see if "red" is in "red"
+Checking answer "blue"
+Checking to see if "red" is in "blue"
+Checking answer "yellow"
+Checking to see if "red" is in "yellow"
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking answer "red"
+Checking to see if "orange" is in "red"
+Checking answer "blue"
+Checking to see if "orange" is in "blue"
+Checking answer "yellow"
+Checking to see if "orange" is in "yellow"
+Answer wrong.
+Wrong answer dialog done.
+Question "What is your favorite color?" (id favorite-color) checking answers...
+Checking answer "red"
+Checking to see if "yellow" is in "red"
+Checking answer "blue"
+Checking to see if "yellow" is in "blue"
+Checking answer "yellow"
+Checking to see if "yellow" is in "yellow"
