@@ -14,9 +14,13 @@ import pathlib as paths
 
 # To set debugging.
 global group_guess_debug; group_guess_debug = True
-def debug(*zargs, **kwargs):
+def debug(*zargs, verbosity=1, **kwargs):
   if group_guess_debug:
-    print(*zargs, **kwargs)
+    if type(group_guess_debug) == bool:
+      print(*zargs, **kwargs)
+  if type(group_guess_debug) == int:
+    if verbosity <= group_guess_debug:
+      print(*zargs, **kwargs)
 
 def find_asset_dir():
   """To locate icons for use."""
