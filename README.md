@@ -7,6 +7,8 @@ This is an attempt to build a game like Family Feud, playable digitally in a man
 
 Use the `gg-samesave` script and pass it a Group Guess savefile as an option. An example savefile is in `group_guess/example.json`. It shows the pattern of how a savefile works. As an example, running the example savefile when in the source directory would be `./gg-gamesave group_guess/example.json`.
 
+*When Group Guess is installed with a package, items that you might need (such as the example savefile) are stored in different locations. For more information about where items may be found for the .deb package, see `/usr/share/doc/group-guess/README.Debian`.*
+
 # Layout Explanation and Setup #
 
 ## Installing from source ##
