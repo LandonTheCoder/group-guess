@@ -1,7 +1,7 @@
 #! /usr/bin/python3
-"""Very basic example code.
+"""Group Guess Savefile Implementation.
 
-Meant to be used as a guide for new games, until a savefile is implemented."""
+This supports loading JSON savefiles, which is desirable for the user."""
 
 import group_guess
 import gi; gi.require_version("Gtk", "3.0")
@@ -66,7 +66,8 @@ def main(passed_args=None):
   parser = argparse.ArgumentParser(description="Load and play a saved Group Guess game")
   parser.add_argument("file", help="The savefile to open")
   parser.add_argument('--verbose', '-v', action='count', dest="verbose",
-                      help="Set verbosity level")
+                      help="Set verbosity level (specify multiple times to "
+                           "increase verbosity)")
   args = parser.parse_args(passed_args)
 
   if args.verbose:

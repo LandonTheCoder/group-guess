@@ -1,12 +1,16 @@
 # group-guess
 Group Guess, a Family Feud-like game
 
-This is an attempt to build a game like Family Feud, playable digitally in a manner similar to the Jeopardy games available online. This is still very much a work in progress, with a lot of To-Dos (most importantly testing).
+This is an attempt to build a game like Family Feud, playable digitally in a manner similar to the Jeopardy games available online. This is still very much a work in progress, with a lot of To-Dos (most importantly, testing).
 
 # How to use #
 
+Use the `gg-samesave` script and pass it a Group Guess savefile as an option. An example savefile is in `group_guess/example.json`. It shows the pattern of how a savefile works. As an example, running the example savefile when in the source directory would be `./gg-gamesave group_guess/example.json`.
+
+# Layout Explanation and Setup #
+
 ## Installing from source ##
-To install from source (without generating packages), you can use `sudo python3 setup.py install` to install systemwide, or `python3 setup.py install --user` to install userwide with a directory hierarch within `~/.local`. If installed per-user, you can run a savefile with `~/.local/bin/gg-gamesave /path/to/a/savefile` (with "/path/to/a/savefile" replaced with your savefile).
+To install from source (without generating packages), you can use `sudo python3 setup.py install` to install systemwide, or `python3 setup.py install --user` to install userwide with a directory hierarchy within `~/.local`. If installed per-user, you can run a savefile with `~/.local/bin/gg-gamesave /path/to/a/savefile` (with "/path/to/a/savefile" replaced with your savefile).
 
 However, I recommend that you use the package from a release, if available, for the sake of installing systemwide. It still hasn't been tested much.
 
@@ -23,12 +27,14 @@ The `group_guess.py` file is a library that can be used to create games of Group
  - [x] Write the example code. This will show others how to write their own Group Guess game.
  - [ ] Test the code! (The reason why is obvious.)
    - This is partially done. It works, and a single question is answerable. I haven't done more comprehensive testing, though.
-   - I also need to test if the asset-finding code works when the group_guess module is separate from the game subclass.
- - [x] Write code to support saved games, so that making a new Group Guess game doesn't require making a subclass, but just importing a save file into data structures. I'm thinking that the save format would use JSON, because that maps quite well to the internal structure of everything, it would just need code to import from JSON.
- - [ ] Making the rest of the icons, including the blank-answer (spacer) icon, most cover icons, and the app icon.
- - [x] Adding an "Answer wrong" dialog
+ - [x] Write code to support saved games, so that making a new Group Guess game doesn't require making a subclass, but just importing a save file into data structures. This ended up using JSON because it maps well to the internal structure.
+ - [ ] Making the app icon.
+ - [ ] Support creating proper packages
+   - [x] Support creating .deb packages (Debian/Ubuntu packages)
+   - [ ] Support creating RPM packages
  - [ ] Adding more debugging hooks
  - [ ] Use gtk.Application API to support app grouping
  - [ ] Optional: Fancy sound effects.
+
 # Helping Out #
 You can help out by adding where stuff is missing, and you can find out about the toolkit I used from the website [The Python GTK+ 3 Tutorial](https://python-gtk-3-tutorial.readthedocs.io/en/latest/). See especially Sections 2 (Getting Started), 3 (Basics), and [5 (Widget Gallery)](https://python-gtk-3-tutorial.readthedocs.io/en/latest/gallery.html). Also relevant: [A list of all GTK+ 3 classes in Python 3 bindings](https://lazka.github.io/pgi-docs/Gtk-3.0/classes.html).
