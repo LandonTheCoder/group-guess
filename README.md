@@ -9,6 +9,8 @@ Use the `gg-samesave` script and pass it a Group Guess savefile as an option. An
 
 *When Group Guess is installed with a package, items that you might need (such as the example savefile) are stored in different locations. For more information about where items may be found for the .deb package, see `/usr/share/doc/group-guess/README.Debian`.*
 
+The savefile format is now documented in [SAVE-FORMAT.md](SAVE-FORMAT.md), which helps explain the purpose of everything in a savefile.
+
 # Layout Explanation and Setup #
 
 ## Installing from source ##
