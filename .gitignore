@@ -9,3 +9,4 @@ debian/group-guess.postinst.debhelper
 debian/group-guess.prerm.debhelper
 debian/group-guess.substvars
 debian/group-guess/
+.pc/
