@@ -6,7 +6,7 @@ The Group Guess savefile uses the JSON format, due to the fact it maps well to h
 # Example Savefile #
 Here is the example savefile as of version 1.2.0 (see *group\_guess/example.json*):
 
-```
+```json
 {
   "game_title": "Example Save",
   "debug": false,
@@ -31,7 +31,7 @@ Here is the example savefile as of version 1.2.0 (see *group\_guess/example.json
 The braces (like "{}") denote an "object" which can contain arbitrarily named properties, which contain either other objects, lists noted by square brackets (like "\[\]"), "strings" of text enclosed in quotes, a true/false type, a numerical type, or a "null" type (meaning that nothing is there). Properties of objects, and items within lists, are separated by commas.
 
 Here is a quote which omits any sub-objects:
-```
+```json
 {
   "game_title": "Example Save",
   "debug": false,
@@ -54,7 +54,7 @@ The "questions" property contains a list of objects that represent the game's qu
 
 To make it clearer to read, I will copy the example question here, to make its properties easier to see.
 
-```
+```json
 {
   "question": "What is your favorite color?",
   "the_id": "favorite-color",
@@ -76,7 +76,7 @@ The "answers" property contains a list of answer objects that will show, when it
 
 I also included the answers here for clarity.
 
-```
+```json
 [
   {"displayname": "red", "alts": [], "ppl": 30},
   {"displayname": "blue", "ppl": 25},
