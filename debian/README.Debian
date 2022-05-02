@@ -4,7 +4,9 @@ group-guess for Debian
 The script gg-gamesave is used to launch Group Guess gamesaves in JSON format.
 The library code is contained as module `group_guess` in the standard distribution location, and also contains some assets.
 Notably, the module also contains the assets/ subdirectory containing icons, and the `example.json` file, which is the example savefile.
-(It should be at `/usr/lib/python3/dist-packages/group_guess/example.json`.)
-If anybody knows how to make `distutils` save to ${prefix}/share, or can help me convert to `setuputils`, do reach out on GitHub.
+(It should be at `/usr/lib/python3/dist-packages/group_guess/example.json`, and also in `/usr/share/doc/group-guess/examples/`.)
 
- -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 17 Apr 2022 12:27:48 -0400
+If anybody can help me convert to `setuputils`, do reach out on GitHub.
+Since version 1.2.0, I've managed to figure out how to get documentation files in the root of the repository to be added into `/usr/share/doc/group-guess`. I also got it to store group_guess/example.json and group_guess/example.py in `/usr/share/doc/group-guess/examples`.
+
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 02 May 2022 15:18:45 -0400

@@ -3,6 +3,9 @@ group-guess (1.2.1-1) unstable; urgency=medium
   * Add tracking of example files in debian/group-guess.examples
   * Add tracking of documentation files README.md and SAVE-FORMAT.md in debian/docs
   * Support varied verbosity levels. This is implemented by a new option to the debug logger, and the user can specify --verbose 1 or more times to override an input file.
+  * Clean out a few unnecessary example files in the debian/ directory.
+
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 02 May 2022 15:18:45 -0400
 
 group-guess (1.2.0-3) unstable; urgency=medium
   * Note documentation files, so they should install into the package properly.

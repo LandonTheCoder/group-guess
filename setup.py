@@ -3,7 +3,7 @@ from distutils.core import setup
 
 #email: 100165458+LandonTheCoder@users.noreply.github.com
 setup(name="Group Guess",
-      version="1.1.2",
+      version="1.2.1",
       description="Group Guess, a Family Feud clone",
       author="LandonTheCoder",
       author_email="100165458+LandonTheCoder@users.noreply.github.com",
