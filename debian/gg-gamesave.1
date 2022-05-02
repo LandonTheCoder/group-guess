@@ -1,0 +1,80 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" (C) Copyright 2022 Landon H. <100165458+LandonTheCoder@users.noreply.github.com>,
+.\"
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH GG-GAMESAVE 1 "April 17 2022"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+gg-gamesave \- program to open Group Guess savefiles
+
+.SH SYNOPSIS
+.B group-guess
+.RI [ options ] " file"
+
+.SH DESCRIPTION
+This manual page documents briefly the
+.B gg-gamesave
+command.
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+
+\fBgg-gamesave\fP is a program that interprets JSON savefiles for
+.IR "Group Guess" ,
+and loads a game window with the gamefile's specified questions and answers.
+
+.SH OPTIONS
+These programs follow the usual GNU command line syntax, with long options
+starting with two dashes (`-'). A summary of options is included below.
+.TP
+.B \-h, \-\-help
+Show summary of options.
+.TP
+.B \-v, \-\-verbose
+Tell
+.B gg-gamesave
+to give more verbose output, useful for debugging. This overrides the "debug" setting in the savefile, and specifying
+.B \-\-verbose
+multiple times will increase verbosity by 1 (meaning more debugging output)
+for each occurence of
+.BR \-\-verbose .
+
+.\" This function not implemented yet.
+.\".TP
+.\".B \-V, \-\-version
+.\"Show version of program.
+
+.SH SEE ALSO
+The programs have documentation installed systemwide at
+.IR "/usr/share/doc/group-guess" ", and examples installed at " "/usr/share/doc/group-guess/examples" ,
+also available in the source code.
+.PP
+The "example.json" file in the systemwide examples.
+.PP
+The "SAVE-FORMAT.md.gz" (or "SAVE-FORMAT.md") file in the
+documentation directory. 
+.br
+Alternatively, the latest version of the
+documentation on
+.UR https://github.com/LandonTheCoder/group-guess/blob/main/SAVE-FORMAT.md
+the group-guess GitHub page
+.UE .
+.PP
+.\" Link of [JSON on Wikipedia](https://en.wikipedia.org/wiki/JSON)
+.UR https://en.wikipedia.org/wiki/JSON
+JSON on Wikipedia
+.UE .
