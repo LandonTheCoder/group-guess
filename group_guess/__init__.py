@@ -205,7 +205,7 @@ class Question(gtk.Box):
           del tmp_text
           has_invalid_answer = True
           break
-        elif text.lower().strip() in x.lower().strip():
+        elif text.casefold().strip() in x.casefold().strip():
           the_answer = ans
           has_answer = True
       if has_invalid_answer: break #break can only escape one loop.
