@@ -192,8 +192,8 @@ class Question(gtk.Box):
     for ans in self.answers:
       debug("Checking answer \"%s\"" %(ans.displayname), verbosity=3)
       for x in ans.answers:
-        debug("Checking to see if \"%s\" is in \"%s\"" %(text.lower().strip(),
-                                                         x.lower().strip())
+        debug("Checking to see if \"%s\" is in \"%s\"" %(text.casefold().strip(),
+                                                         x.casefold().strip())
              )
         # Check for cheats by inputting a tiny string to make more matches
         if len(text.strip()) < 2:
@@ -356,10 +356,5 @@ This will contain the definitions of the questions and their respective answers.
     pass
 
 """Notes to self:
- - Look into a class that transitions between 2 different objects (such as the space filler and the answer)
- - Under Question, use gtk.FlowBox to orient the rows.
- - Window: use gtk.Stack to manage the Questions, and provide a gtk.StackSwitcher for debugging
- - Window: The Questions will be selected by a gtk.Box of gtk.Buttons
- - Use Stack with zstack.set_transition_type(gtk.StackTransitionType.UNDER_UP) for Answer
  - If a function doesn't exist, it throws NameError
 """
