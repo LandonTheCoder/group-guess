@@ -1,3 +1,9 @@
+group-guess (1.2.2-1) unstable; urgency=medium
+  * This adds a proper manpage, which I'll have to see if it includes automatically.
+  * This fixes a long-standing bug where the cover images had an object slightly longer than SVG canvase size, causing the bottom to get cut off.
+  * This fixes an underwater Unicode handling bug by changing answer comparison from x.lower().strip() to x.casefold().strip(), which should catch some non-matching sequences for comparison.
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Tue, 10 May 2022 15:36:48 -0400
+
 group-guess (1.2.1-1) unstable; urgency=medium
   * This is the public version containing the fixes of 1.2.0-2 and 1.2.0-3. Those fixes include:
   * Add tracking of example files in debian/group-guess.examples
