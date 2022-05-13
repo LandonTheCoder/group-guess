@@ -1,3 +1,10 @@
+group-guess (1.2.3-1) unstable; urgency=medium
+  * Polishes port to setuptools.
+  * Should be ready for production.
+  * Adds a .gitignore entry for the "Group_Guess.egg-info" directory.
+
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Fri, 13 May 2022 18:37:05 -0400
+
 group-guess (1.2.2-2) unstable; urgency=medium
   * Attempt to port to setuptools for future-proofing.
   * This is a local release for testing.
