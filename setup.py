@@ -1,10 +1,12 @@
 #! /usr/bin/python3
-from distutils.core import setup
+##from distutils.core import setup
+from setuptools import setup
+# Let's hope this works...
 
 #email: 100165458+LandonTheCoder@users.noreply.github.com
 setup(name="Group Guess",
-      version="1.2.1",
-      description="Group Guess, a Family Feud clone",
+      version="1.2.2",
+      description="Game implementing a Family Feud clone",
       author="LandonTheCoder",
       author_email="100165458+LandonTheCoder@users.noreply.github.com",
       url="https://github.com/LandonTheCoder/group-guess/",

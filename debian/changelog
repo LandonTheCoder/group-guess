@@ -1,3 +1,9 @@
+group-guess (1.2.2-2) unstable; urgency=medium
+  * Attempt to port to setuptools for future-proofing.
+  * This is a local release for testing.
+
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Fri, 13 May 2022 17:14:22 -0400
+
 group-guess (1.2.2-1) unstable; urgency=medium
   * This adds a proper manpage, which I'll have to see if it includes
     automatically.

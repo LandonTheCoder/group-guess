@@ -10,3 +10,4 @@ debian/group-guess.prerm.debhelper
 debian/group-guess.substvars
 debian/group-guess
 .pc
+Group_Guess.egg-info
