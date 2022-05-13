@@ -13,7 +13,7 @@ Package: group-guess
 Architecture: all
 Depends: ${python3:Depends}, ${misc:Depends}, gir1.2-gtk-3.0, gir1.2-glib-2.0, gir1.2-rsvg-2.0, librsvg2-2, libgtk-3-0, libglib2.0-0
 Suggests: python-group-guess-doc
-Description: Group Guess, a Family Feud clone (Python 3)
+Description: Game implementing a Family Feud clone (Python 3)
  This is Group Guess. It intends to be a simple, yet extensible Family Feud
  clone. It features the ability to store games in JSON files.
  .

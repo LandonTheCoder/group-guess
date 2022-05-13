@@ -1,14 +1,23 @@
 group-guess (1.2.2-1) unstable; urgency=medium
-  * This adds a proper manpage, which I'll have to see if it includes automatically.
-  * This fixes a long-standing bug where the cover images had an object slightly longer than SVG canvase size, causing the bottom to get cut off.
-  * This fixes an underwater Unicode handling bug by changing answer comparison from x.lower().strip() to x.casefold().strip(), which should catch some non-matching sequences for comparison.
+  * This adds a proper manpage, which I'll have to see if it includes
+    automatically.
+  * This fixes a long-standing bug where the cover images had an object
+    slightly longer than SVG canvase size, causing the bottom to get cut off.
+  * This fixes an underwater Unicode handling bug by changing answer
+    comparison from x.lower().strip() to x.casefold().strip(), which should
+    catch some non-matching sequences for comparison.
+
  -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Tue, 10 May 2022 15:36:48 -0400
 
 group-guess (1.2.1-1) unstable; urgency=medium
-  * This is the public version containing the fixes of 1.2.0-2 and 1.2.0-3. Those fixes include:
+  * This is the public version containing the fixes of 1.2.0-2 and 1.2.0-3.
+    Those fixes include:
   * Add tracking of example files in debian/group-guess.examples
-  * Add tracking of documentation files README.md and SAVE-FORMAT.md in debian/docs
-  * Support varied verbosity levels. This is implemented by a new option to the debug logger, and the user can specify --verbose 1 or more times to override an input file.
+  * Add tracking of documentation files README.md and SAVE-FORMAT.md in
+    debian/docs
+  * Support varied verbosity levels. This is implemented by a new option to
+    the debug logger, and the user can specify --verbose 1 or more times to
+    override an input file.
   * Clean out a few unnecessary example files in the debian/ directory.
 
  -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 02 May 2022 15:18:45 -0400
@@ -29,7 +38,8 @@ group-guess (1.2.0-2) unstable; urgency=medium
 group-guess (1.2.0-1) unstable; urgency=medium
 
   * Corrects debian/ references, and makes portable instances work correctly.
-  * Errata: the changelog declared initial release as 1.1.2-1, but GitHub declared as 1.1.3 Beta.
+  * Errata: the changelog declared initial release as 1.1.2-1, but GitHub
+    declared as 1.1.3 Beta.
   
  -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 18 Apr 2022 17:40:40 -0400
 # Fix this with the result of `date -R` later.
