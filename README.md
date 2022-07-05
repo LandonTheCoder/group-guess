@@ -35,7 +35,8 @@ The `group_guess.py` file is a library that can be used to create games of Group
  - [ ] Making the app icon.
  - [ ] Support creating proper packages
    - [x] Support creating .deb packages (Debian/Ubuntu packages)
-   - [ ] Support creating RPM packages
+   - [x] Support creating RPM packages
+     - Reading the RPM documentation, it seems the ideal way to build with an unpacked tarball is to use `rpmbuild -ba --build-in-place` instead of `rpmbuild -ba` (or `rpmbuild -bs && rpmbuild -bb`).
  - [ ] Adding more debugging hooks
  - [ ] Use gtk.Application API to support app grouping
  - [ ] Optional: Fancy sound effects.
