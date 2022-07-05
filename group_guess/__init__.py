@@ -33,6 +33,7 @@ def find_asset_dir():
   else:
     # If the importer is separate from the module/library...
     # This also checks for scripts using it as a submodule.
+    print("sys.path:", path)
     for x in path[0:]: 
       # x will contain module directories.
       item = paths.Path(x)
@@ -41,9 +42,12 @@ def find_asset_dir():
         print(item, "exists!")
         for y in item.iterdir():
           # y is the actual set of module directories.
-          if (y.joinpath("assets").exists() and y.joinpath("assets").is_dir()):
-            print("trying %s" %(y.joinpath("assets")))
-            return y.joinpath("assets")
+          testdir = y.joinpath("assets")
+          testfile = testdir.joinpath("cover-1.svg")
+          if (testdir.exists() and testdir.is_dir()):
+            if (testfile.exists() and testfile.is_file()):
+              print("trying %s" %(y.joinpath("assets")))
+              return y.joinpath("assets")
       else:
         print("%s is invalid/nonexistent!" %(item))
     # Let's hope this works.
