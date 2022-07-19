@@ -1,6 +1,8 @@
 # group-guess
 Group Guess, a Family Feud-like game
 
+![Screenshot of Group Guess Example](group-guess-example-screenshot.png)
+
 This is an attempt to build a game like Family Feud, playable digitally in a manner similar to the Jeopardy games available online. This is still very much a work in progress, with a lot of To-Dos (most importantly, testing).
 
 # How to use #

@@ -1,6 +1,6 @@
 Name:           group-guess
 Version:        1.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A Family Feud clone
 BuildArch:	noarch
 
@@ -57,6 +57,8 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 
 
 %changelog
- * Fri July 5 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.0-1
+* Fri Jul 5 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.0-2
+ - Fix date, so package will build.
+* Fri Jul 5 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.0-1
  - First RPM package (tested on Fedora 36) of Group Guess
  - Fixes a bug in code for asset-directory detection
