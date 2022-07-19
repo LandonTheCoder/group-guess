@@ -1,3 +1,8 @@
+group-guess (1.3.1-1) unstable; urgency=medium
+  * Fixes alignment/padding of Question label
+
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 18 Jul 2022 20:15:47 -0400
+
 group-guess (1.3.0-1) unstable; urgency=medium
   * Releases first Group Guess RPM (for Fedora)
   * Fixes bug in asset-directory detection. Now, Group Guess tests for the existence of one of its asset files in that directory.
