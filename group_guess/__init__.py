@@ -176,7 +176,7 @@ class Question(gtk.Box):
     self.entry_field.connect("activate", self.check_answer)
     # When icon clicked
     self.entry_field.connect("icon-press", self.check_answer_icon)
-    self.pack_start(self.question_lbl, False, False, 0)
+    self.pack_start(self.question_lbl, False, False, 5)
     self.pack_start(self.flowbox, False, False, 0)
     self.pack_start(self.entry_field, False, False, 5)
   def check_answer_icon(self, guess, *args):
