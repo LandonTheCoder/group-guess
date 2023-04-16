@@ -5,7 +5,7 @@ from setuptools import setup
 
 #email: 100165458+LandonTheCoder@users.noreply.github.com
 setup(name="Group Guess",
-      version="1.3.1",
+      version="1.3.2",
       description="Game implementing a Family Feud clone",
       author="LandonTheCoder",
       author_email="100165458+LandonTheCoder@users.noreply.github.com",

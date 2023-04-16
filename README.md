@@ -26,6 +26,9 @@ The `group_guess/` directory contains the library code. Within, it contains `__i
 ## debian/ directory ##
 The `debian/` directory contains the files that configure Debian/Ubuntu packaging (a.k.a. can generate .deb packages). The ones that someone would care about are *debian/control* (Notes the dependencies and other package information shown by `apt show`), *debian/changelog* (A changelog, also declares release of new versions, see [deb-changelog(5)](https://manpages.debian.org/bullseye/dpkg-dev/deb-changelog.5.en.html)), and *debian/README.Debian* (which carries notes about the package specific to .deb packaging).
 
+## rpm-group-guess.spec and PKGBUILD ##
+While not directories, they are important. PKGBUILD is the build script for making a native package on Arch systems. rpm-group-guess.spec can be used to build a package for RPM systems (only tested on Fedora). The rpm-group-guess.spec file *might* work on other systems, but that is not guaranteed. If you have fixes that make it work on other RPM distros, feel free to submit them.
+
 ## For old versions ##
 The `group_guess.py` file is a library that can be used to create games of Group Guess, which is similar to Family Feud. The `example.py` file is an example of how to use subclasses to create games. The `gg-gamesave.py` file is code that implements JSON-format gamesave importing. The `example.json` file is `example.py` converted into a JSON savefile, with the difference that debugging is disabled on it. The `assets` directory contains the icons used in the game.
 
@@ -41,6 +44,7 @@ The `group_guess.py` file is a library that can be used to create games of Group
      - Reading the RPM documentation, it seems the ideal way to build with an unpacked tarball is to use `rpmbuild -ba --build-in-place` instead of `rpmbuild -ba` (or `rpmbuild -bs && rpmbuild -bb`).
    - [x] Support creating Arch packages (PKGBUILD)
      - There are icon glitches in the Arch package which I have to debug, but it otherwise works.
+ - [ ] Figure out how to make setup.py install documentation, for slight simplification of packaging (and an easier time for self-builders)
  - [ ] Adding more debugging hooks
  - [ ] Use gtk.Application API to support app grouping
  - [ ] Optional: Fancy sound effects.
