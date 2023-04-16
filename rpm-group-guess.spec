@@ -57,7 +57,7 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 
 
 %changelog
-* Sun 16 Apr 2023 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.1-1
+* Sun Apr 16 2023 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.1-1
  - (Attempt to) Introduce Arch PKGBUILD
  - Corrections for RPM packaging
  - Fix alignment/padding of Question label
