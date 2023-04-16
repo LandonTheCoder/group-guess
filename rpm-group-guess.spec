@@ -62,6 +62,7 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
  - Corrections for RPM packaging
  - Fix alignment/padding of Question label
  - Correct name of command to gg-gamesave in gg-gamesave.1 manpage
+ - Use correct, non-Ubuntu-specific icon name for "search" icon
 * Fri Jul 5 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.0-2
  - Fix date, so package will build.
 * Fri Jul 5 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.0-1

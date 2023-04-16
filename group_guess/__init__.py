@@ -169,7 +169,7 @@ class Question(gtk.Box):
     self.entry_field = gtk.Entry(tooltip_text="Type Guess Here...")
     #gtk.Entry.set_icon_from_icon_name(pos: gtk.EntryIconPosition, name: str)
     self.entry_field.set_icon_from_icon_name(gtk.EntryIconPosition.SECONDARY,
-                                             "search-symbolic")
+                                             "system-search-symbolic")
     self.entry_field.set_icon_activatable(gtk.EntryIconPosition.SECONDARY,
                                           True)
     # When Enter key pressed

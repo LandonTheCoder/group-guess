@@ -3,6 +3,7 @@ group-guess (1.3.1-1) unstable; urgency=medium
   * (Attempt to) Introduce PKGBUILD for Arch
   * Fixes alignment/padding of Question label
   * Correct name of command in gg-gamesave.1 manpage to gg-gamesave
+  * Use non-Ubuntu-specific icon name for the "search" icon
 
  -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 16 Apr 2023 11:10:03 -0400
 
