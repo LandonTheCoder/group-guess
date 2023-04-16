@@ -3,11 +3,12 @@ pkgver=1.3.1
 pkgrel=1
 pkgdesc="A Family Feud clone"
 url="https://github.com/LandonTheCoder/group-guess"
-arch=(any)
-license=(MIT)
-depends=(python gtk3 python-gobject)
+arch=("any")
+license=("MIT")
+depends=(python gtk3 python-gobject librsvg)
 makedepends=(gobject-introspection python-setuptools)
-#source=#I don't know
+# I don't download source, because this PKGBUILD is in-tree and source is already downloaded.
+#source=("$pkgname-$pkgver.tar.gz"::https://github.com/LandonTheCoder/group-guess/archive/v$pkgver.tar.gz")
 
 package() {
   # This builds in pkgbuild directory, so we do NOT cd $pkgname-$pkgver here.

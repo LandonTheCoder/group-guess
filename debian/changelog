@@ -1,7 +1,9 @@
 group-guess (1.3.1-1) unstable; urgency=medium
+  * Fixes Group Guess RPM (hopefully)
+  * (Attempt to) Introduce PKGBUILD for Arch
   * Fixes alignment/padding of Question label
 
- -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Mon, 18 Jul 2022 20:15:47 -0400
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 16 Apr 2023 10:31:23 -0400
 
 group-guess (1.3.0-1) unstable; urgency=medium
   * Releases first Group Guess RPM (for Fedora)
