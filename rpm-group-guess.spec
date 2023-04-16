@@ -42,6 +42,8 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 
 %files
 %license LICENSE
+# Important note: The %dir directive is only to be used for directories
+# *owned* by this package.
 %dir %{python3_sitelib}/group_guess
 %dir %{python3_sitelib}/group_guess/__pycache__/
 %{python3_sitelib}/group_guess/__pycache__/*.pyc
