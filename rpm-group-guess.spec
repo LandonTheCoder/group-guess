@@ -1,6 +1,6 @@
 Name:           group-guess
-Version:        1.3.0
-Release:        2%{?dist}
+Version:        1.3.1
+Release:        1%{?dist}
 Summary:        A Family Feud clone
 BuildArch:	noarch
 
@@ -57,7 +57,9 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 
 
 %changelog
-* Mon 18 Jul 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.1-1
+* Sun 16 Apr 2023 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.1-1
+ - (Attempt to) Introduce Arch PKGBUILD
+ - Corrections for RPM packaging
  - Fix alignment/padding of Question label
 * Fri Jul 5 2022 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.0-2
  - Fix date, so package will build.
