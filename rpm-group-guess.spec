@@ -1,5 +1,5 @@
 Name:           group-guess
-Version:        1.3.1
+Version:        1.3.2
 Release:        1%{?dist}
 Summary:        A Family Feud clone
 BuildArch:	noarch
@@ -36,6 +36,8 @@ Requires:	glib2
 %py3_install
 mkdir -vp %{buildroot}/%{_pkgdocdir}/examples
 cp -vt %{buildroot}/%{_pkgdocdir}/examples %{buildroot}/%{python3_sitelib}/group_guess/example.json %{buildroot}/%{python3_sitelib}/group_guess/example.py
+mkdir -vp %{buildroot}%{_mandir}/man1
+cp -vt %{buildroot}%{_mandir}/man1 debian/gg-gamesave.1
 rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version}.egg-info
 
 %files
@@ -48,8 +50,12 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 %{python3_sitelib}/group_guess/example.json
 %{python3_sitelib}/group_guess/assets/*.svg
 %{_bindir}/gg-gamesave
+# Install examples
 %dir %{_pkgdocdir}/examples
 %{_pkgdocdir}/examples/example.*
+# Manpages
+%dir %{_mandir}/man1
+%{_mandir}/man1/gg-gamesave.1.gz
 %doc README.md
 %doc SAVE-FORMAT.md
 
@@ -57,6 +63,8 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 
 
 %changelog
+* Sun Apr 16 2023 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.2-1
+ - Install manpage, hopefully
 * Sun Apr 16 2023 LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com> - 1.3.1-1
  - (Attempt to) Introduce Arch PKGBUILD
  - Corrections for RPM packaging
