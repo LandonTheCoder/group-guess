@@ -54,7 +54,7 @@ rm -r %{buildroot}/%{python3_sitelib}/Group_Guess-%{version}-py%{python3_version
 %dir %{_pkgdocdir}/examples
 %{_pkgdocdir}/examples/example.*
 # Manpages
-%dir %{_mandir}/man1
+#%dir %{_mandir}/man1
 %{_mandir}/man1/gg-gamesave.1.gz
 %doc README.md
 %doc SAVE-FORMAT.md
