@@ -11,10 +11,17 @@ makedepends=(gobject-introspection python-setuptools)
 #source=("$pkgname-$pkgver.tar.gz"::https://github.com/LandonTheCoder/group-guess/archive/v$pkgver.tar.gz")
 
 package() {
-  # This builds in pkgbuild directory, so we do NOT cd $pkgname-$pkgver here.
-  python setup.py install --destdir="$pkgdir"
+  # Debugging output
+  echo "srcdir: $srcdir"
+  echo "pkgdir: $pkgdir"
+  # makepkg does an implied `cd $srcdir`, so PKGBUILD is in the level above it.
+  cd ..
+  # This builds in PKGBUILD directory, so we do NOT cd $pkgname-$pkgver here.
+  python setup.py install --root="$pkgdir"
   install -v -D -m 644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
   install -v -D -m 644 debian/gg-gamesave.1 -t "$pkgdir/usr/share/man/man1/"
+  # README and format documentation
+  install -v -D -m 644 README.md SAVE-FORMAT.md -t "$pkgdir/usr/share/doc/$pkgname/"
   # Examples
   install -v -D -m 644 group_guess/example.json \
                        group_guess/example.py -t \

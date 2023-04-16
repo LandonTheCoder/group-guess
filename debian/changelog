@@ -2,8 +2,9 @@ group-guess (1.3.1-1) unstable; urgency=medium
   * Fixes Group Guess RPM (hopefully)
   * (Attempt to) Introduce PKGBUILD for Arch
   * Fixes alignment/padding of Question label
+  * Correct name of command in gg-gamesave.1 manpage to gg-gamesave
 
- -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 16 Apr 2023 10:31:23 -0400
+ -- LandonTheCoder <100165458+LandonTheCoder@users.noreply.github.com>  Sun, 16 Apr 2023 11:10:03 -0400
 
 group-guess (1.3.0-1) unstable; urgency=medium
   * Releases first Group Guess RPM (for Fedora)
